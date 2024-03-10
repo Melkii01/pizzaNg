@@ -8,7 +8,7 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "start1": "http-server -c-1 -p 8081 dist/pizza",
-    "build-gp": "ng build --output-path docs --base-href /pizza/"
+    "build-gp": "ng build --output-path docs --base-href /pizzaNg/"
   },
   "private": true,
   "dependencies": {
