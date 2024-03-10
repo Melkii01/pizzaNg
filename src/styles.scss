@@ -1,0 +1,477 @@
+/*обнуляем все отступы на странице, как внутренние, так и внешние*/
+* {
+  margin: 0;
+  padding: 0;
+}
+
+/*устанавливаем необходимые шрифты для верстки*/
+@font-face {
+  font-family: MullerBold;
+  src: url("./assets/fonts/MullerBold.otf");
+}
+
+@font-face {
+  font-family: MullerExtraBold;
+  src: url("./assets/fonts/MullerExtraBold.otf");
+}
+
+@font-face {
+  font-family: Muller;
+  src: url("./assets/fonts/MullerRegular.otf");
+}
+
+body {
+  /*задаем шрифты для всего содержания на странице, как специальные (Muller),
+  так и стандартные (self-serif)*/
+  font-family: Muller, sans-serif;
+}
+
+.container {
+  /*задаем максимальную ширину*/
+  max-width: 1200px;
+  /*выравнивание по центру*/
+  margin: 0 auto;
+}
+
+/*делаем адаптивную верстку по замерам*/
+/*1024 - 1229*/
+@media screen and (max-width: 1229px) {
+  .container {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+}
+
+
+/*устанавливаем: заливку фона, */
+/*ширину, высоту и наведение курсив для всех кнопок*/
+/*убираем внешнюю оконтовку - outline*/
+/*устанавливает внутренние отступы (padding) */
+/*для текста кнопки: одинаково значение (для всех)*/
+/*устанавливаем box-sizing для того, чтобы вместить */
+/*текст равномерно в границы кнопки*/
+.btn {
+  background-color: #ffaf18;
+  width: 224px;
+  height: 60px;
+  cursor: pointer;
+  outline: none;
+  border: 0;
+  padding: 22px;
+  box-sizing: border-box;
+  font-size: 16px;
+  font-family: MullerBold, sans-serif;
+  color: rgb(56, 36, 0);
+  display: inline-block;
+  text-decoration: none;
+  text-align: center;
+}
+
+.btn.btn-white {
+  background: transparent;
+  border: 1px solid #ffaf18;
+  color: #ffaf18;
+}
+
+/*создаем стили для основного блока (секции)*/
+.main {
+  /*нет фона (background-color),*/
+  /*задаем внешние отступы или поля (margin)*/
+  /*margin (сверху, справа, снизу, слева)*/
+  margin: 132px 0 81px 0;
+}
+
+.main .container {
+  /*устанавливаем свойство flex-box: */
+  /*(растягиваться или сжиматься, заполняя пространство равномерно)*/
+  /*элементам основного блока (секции)*/
+  display: flex;
+  /*распологаем элементы в main в длину - по центру*/
+  align-items: center;
+  /*задаем равномерные отступы между элементами  main*/
+  justify-content: space-between;
+}
+
+
+.main-info {
+  /*задаем максимальную ширину блока (main-info)*/
+  max-width: 622px;
+}
+
+/*задаем стили для заголовка (h1): */
+/*как одной части (один цвет), */
+/*так и другой части (другой цвет)*/
+.main-info h1 {
+  font-size: 45px;
+  font-family: MullerExtraBold, sans-serif;
+  line-height: 1.222;
+}
+
+.main-info h1 > span {
+  color: #ffaf18;
+}
+
+/*делаем оптимизацию стилей в блоках: main, order (в заголовках span)*/
+/*создаем стиль для заголовка в блоке: order - */
+/*(наоборот чем в блоке main)*/
+.double-title {
+  color: rgb(185, 145, 80);
+}
+
+.double-title span {
+  color: #ffaf18;
+}
+
+/*задаем внешний верхний отступ от контейнера (main-advantages)*/
+.main-advantages {
+  margin-top: 13px;
+  display: flex;
+  /*для переноса элемента на следующую строку, если не помещается по ширине*/
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+/*задаем максимальную ширину контейнера (advantage), */
+/*чтобы поместились по ширине (как минимум 2 штуки в ряд) */
+.advantage {
+  max-width: 306px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 47px;
+}
+
+/*устанавливаем отступ слева для текста (margin-left)*/
+.advantage-text {
+  margin-left: 16px;
+}
+
+/*устанавливаем отступ снизу для заголовка (margin-bottom)*/
+.advantage-title {
+  font-size: 16px;
+  font-family: MullerExtraBold, sans-serif;
+  color: rgb(255, 175, 24);
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+.advantage-description {
+  font-size: 16px;
+  color: rgb(185, 145, 80);
+}
+
+/*устанавливаем отступ сверху для кнопки (margin-top)*/
+.main-action {
+  margin-top: 60px;
+}
+
+/*выполняем стилизацию блоков - products*/
+/*устанавливаем внутренние отступы(для всех блоков - product-card):
+(padding: top, right, bottom, left)*/
+.products {
+  padding: 80px 0 120px 0;
+}
+
+.products-title {
+  font-size: 35px;
+  font-family: MullerBold, sans-serif;
+  color: rgb(189, 152, 92);
+  text-align: center;
+}
+
+.products-items {
+  display: flex;
+  margin-top: 35px;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+/*задаем внутренние отступы (padding) для блока order:*/
+/*(сверху, справа, снизу, слева)*/
+/*чтобы не было скрола влево, вправо, надо устанавливать overflow*/
+.order {
+  padding: 120px 0 115px 0;
+  overflow: hidden;
+  /*position: relative;*/
+}
+
+.order .container {
+  display: flex;
+  /*все элементы выравниваются по нижней
+  границе контейнера (order)*/
+  align-items: flex-end;
+  justify-content: space-between;
+}
+
+.order-text {
+  max-width: 384px;
+}
+
+/*устанавливаем стиль для заголовка блока order*/
+/*устанавливаем внешний отступ снизу(margin-bottom) */
+.order-text-title {
+  font-size: 35px;
+  font-family: MullerExtraBold, sans-serif;
+  margin-bottom: 65px;
+}
+
+.order-text-message {
+  font-size: 16px;
+  color: rgba(185, 145, 80);
+  line-height: 1.5;
+}
+
+/*устанавливаем внешний отступ (margin-left)
+для блока form*/
+/*проводим justification макета и реального расположения */
+/*для блока form (уменьшаем расстояние справа)*/
+.order-form {
+  margin-left: 122px;
+  max-width: 330px;
+}
+
+/*устанавливаем стили для блока (form)*/
+/*устанавливает точные внутренние отступы (padding)*/
+/*устанавливаем внешние отступы (margin-bottom) снизу у каждого  между input*/
+/*устанавливаем цвет у placeholder как у собственного, так и при написании*/
+/*задаем ширину блока input*/
+/*устанавливаем высоту блока input*/
+.order-input {
+  border-width: 1px;
+  border-color: rgb(185, 145, 80);
+  border-style: solid;
+  background-color: rgb(255, 255, 255);
+  width: 330px;
+  font-size: 18px;
+  color: rgb(119, 94, 49);
+  padding: 23px 22px 24px 22px;
+  margin-bottom: 24px;
+  box-sizing: border-box;
+  height: 60px;
+  outline: none;
+}
+
+.order-input::placeholder {
+  color: rgb(203, 168, 110);
+}
+
+/*задаем ширину кнопки, такую же как у блока input
+для симметрии (по макету)*/
+/*устанавливаем высоту кнопки*/
+.order .btn {
+  width: 330px;
+  height: 60px;
+}
+
+/*задаем фиксированную ширину (width) блока, а не максимальную (max-width),
+чтобы картинка не сжималась*/
+/*выравниваем картинку относительно блока (order-image)*/
+/*задаем точный внешний отступ слева*/
+.order-image {
+  width: 282px;
+  position: relative;
+  margin-left: 78px;
+}
+
+.order-image img {
+  position: absolute;
+  bottom: -35px;
+  left: 0
+}
+
+/*делаем адаптивную верстку по замерам*/
+/*1024 - 1229*/
+@media screen and (max-width: 1229px) {
+
+  .main-mage {
+    width: 400px;
+  }
+
+  .main-image img {
+    max-width: 100%;
+  }
+
+  .products-items {
+    /*max-width: 590px;*/
+    /*margin-left: auto;*/
+    /*margin-right: auto;*/
+    justify-content: center;
+  }
+
+  .product {
+    margin: 12px;
+  }
+
+  .order-form {
+    margin-left: 45px;
+  }
+
+  .order .container {
+    max-width: 1024px;
+  }
+
+}
+
+/*768 - 1023*/
+@media screen and (max-width: 1023px) {
+
+  .main .container {
+    flex-direction: column;
+  }
+
+  .main-image {
+    order: 1;
+  }
+
+  .main-info {
+    order: 2;
+  }
+
+  .main {
+    margin-top: 70px;
+  }
+
+  .main-info h1 {
+    text-align: center;
+  }
+
+  .main-action {
+    text-align: center;
+  }
+
+  .products {
+    padding-top: 0;
+    padding-bottom: 40px;
+  }
+
+  .order {
+    padding-top: 60px;
+    position: relative;
+  }
+
+  .order-image {
+    position: absolute;
+    z-index: -1;
+    right: calc(50% - 400px);
+  }
+
+  .order-image img {
+    position: relative;
+  }
+
+  .order .container {
+    justify-content: center;
+  }
+}
+
+/*425 - 767*/
+@media screen and (max-width: 767px) {
+
+  .cart {
+    margin-left: 20px;
+  }
+
+  .main-info h1 {
+    line-height: 45px;
+  }
+
+  .main-advantages {
+    max-width: 306px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .order .container {
+    /*flex-wrap: wrap;*/
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .order-text-title {
+    text-align: center;
+    margin-bottom: 30px;
+  }
+
+  .order-text-message {
+    text-align: center;
+    margin-bottom: 25px;
+  }
+
+  .order-form {
+    margin-left: 0;
+    flex-basis: 100%;
+  }
+}
+
+/*656*/
+@media screen and (max-width: 656px) {
+  .main-advantages {
+    max-width: 306px;
+  }
+}
+
+/*375 - 424*/
+@media screen and (max-width: 424px) {
+
+
+  .main-image {
+    width: 100%;
+  }
+
+}
+
+/*320 - 374*/
+@media screen and (max-width: 374px) {
+  .main-info h1 {
+    font-size: 38px;
+  }
+
+  .order-form {
+    text-align: center;
+  }
+
+  .order-input {
+    width: 290px;
+  }
+
+  .order .btn {
+    width: 290px;
+  }
+
+}
+
+.loader-bg {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.loader {
+  border: 15px solid #f3f3f3;
+  border-top: 15px solid #ffaf18;
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg)
+  }
+  100% {
+    transform: rotate(360deg)
+  }
+}
+
+/* Importing Bootstrap SCSS file. */
+@import '~bootstrap/scss/bootstrap';
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

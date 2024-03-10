@@ -1,0 +1,146 @@
+
+.header {
+  /*копируем стиль тени линии и цвет header css с макета, */
+  background-color: rgb(255, 255, 255);
+  box-shadow: 0 3px 13.8px 1.2px rgba(152, 152, 152, 0.2);
+  /*задаем внутренние отступы - paddings
+  (Важно: всегда замеряем от самого большого объекта(top, right, bottom, left))*/
+  padding: 16px 0 15px 0;
+
+}
+
+.header .container {
+  /*изменяем расположение элементов в header из положения в столбец - в строку*/
+  display: flex;
+  /*распологаем элементы в header в длину - по центру*/
+  align-items: center;
+  /*выравниваем элементы в header по ширине:
+  1 способ: задать внешние отступы слева и справа(margin-left, margin-right);
+  2 способ: автоматическое выравнивание)
+  важно: применяется только если слева и справа от элемента по середине одинаковое расстояние
+  (отступы, max: ~1-2px))*/
+  justify-content: space-between;
+}
+
+.menu {
+
+}
+
+.menu ul {
+  /*убираем маркеры или номера элементов списка у элемента ссылки */
+  list-style: none;
+  /*изменяем расположение элементов в навигации (список) в header из положения в столбец - в строку*/
+  display: flex;
+  /*    задаем фиксированную ширину(ФШ) (width), а не max-width (МШ) контейнера навигации
+  (потому что контент не позволит блоку рассшириться  до такого размера,
+  значит нам придется задать ФШ или если нет других вариантов) списка:
+  1  способ: замеряем приблезительно (~) с помощью выделения из инструмента (Photoshop) */
+  /*2 способ: с помощью Shift удерживая и проходя по всем элементам списка,*/
+  /*в Transform: общая ширина(точная) */
+  width: 489px;
+  /*выравниваем элементы списка в новигации в header по ширине:
+  1 способ: задать внешние отступы слева и справа(margin-left, margin-right);
+  2 способ: автоматическое выравнивание)
+  важно: применяется только если слева и справа от элемента по середине одинаковое расстояние
+  (отступы, max: ~1-2px))*/
+  /*задаем отступы между элементами списка навигации*/
+  justify-content: space-between;
+}
+
+.menu-item a {
+  text-decoration: none;
+  font-size: 16px;
+  color: rgb(164, 107, 0);
+  line-height: 1;
+}
+
+.menu-item a.active {
+  color: black;
+}
+
+.burger {
+  display: none;
+}
+
+.close {
+  display: none;
+}
+
+/*768 - 1023*/
+@media screen and (max-width: 1023px) {
+  .menu ul {
+    width: 420px;
+  }
+}
+
+/*425 - 767*/
+@media screen and (max-width: 767px) {
+
+  .header .container {
+    flex-wrap: wrap;
+    justify-content: center;
+    max-width: 390px;
+  }
+
+  .menu {
+    order: 3;
+    margin-top: 15px;
+    flex-basis: 100%;
+  }
+
+  .menu ul {
+    max-width: 398px;
+    /*margin: 0 auto;*/
+  }
+}
+
+/*375 - 424*/
+@media screen and (max-width: 424px) {
+  .menu {
+    display: none;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    top: 0;
+    left: 0;
+    background: #000000c9;
+  }
+
+  .menu ul {
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    margin: 0 auto;
+  }
+
+  .menu-item {
+    margin: 15px 0;
+  }
+
+  .burger {
+    display: block;
+  }
+
+  .burger svg {
+    width: 36px;
+    height: 36px;
+    fill: #f9d7a8;
+    margin-right: 20px;
+  }
+
+  .menu.open {
+    display: flex;
+    align-items: center;
+  }
+
+  .menu .close {
+    display: block;
+    width: 24px;
+    height: 24px;
+    fill: rgb(164, 107, 0);
+    position: absolute;
+    top: 20px;
+    left: 20px;
+  }
+}
